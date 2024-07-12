@@ -48,7 +48,7 @@ jobs:
             working-directory: ${{ github.workspace }}/back
     
         name: SonarQube Backend
-        runs-on: ubuntu-latest # Pour pointer sur le localhost de sonarQube
+        runs-on: self-hosted # Pour pointer sur le localhost de sonarQube
         steps:
           - uses: actions/checkout@v3
             with:
