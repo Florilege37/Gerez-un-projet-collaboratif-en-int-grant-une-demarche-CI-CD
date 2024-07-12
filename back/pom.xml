@@ -16,7 +16,7 @@
 	<properties>
 		<java.version>11</java.version>
 		<sonar.organization>florilege37</sonar.organization>
-		<sonar.projectkey>TODOMETTRENOMKEYSONAR</sonar.projectkey>
+		<sonar.projectkey>Projet-CI-CD</sonar.projectkey>
 		<sonar.projectName>backend</sonar.projectName>
 	</properties> 
 	<dependencies>
