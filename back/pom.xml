@@ -17,7 +17,7 @@
 		<java.version>11</java.version>
 		<sonar.organization>florilege37</sonar.organization>
 		<sonar.projectkey>Projet-CI-CD</sonar.projectkey>
-		<sonar.projectName>backend</sonar.projectName>
+		<sonar.projectName>Projet-CI-CD</sonar.projectName>
 	</properties> 
 	<dependencies>
 		<dependency>
