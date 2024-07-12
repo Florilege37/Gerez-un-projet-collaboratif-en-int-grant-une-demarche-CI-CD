@@ -7,7 +7,7 @@ on:
         branches:
             - develop
         paths: 
-            - '/back/**'
+            - 'back/**'
     pull_request:
         types: [opened, synchronize, reopened]
         branches:
