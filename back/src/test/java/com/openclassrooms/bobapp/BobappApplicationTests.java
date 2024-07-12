@@ -8,7 +8,6 @@ class BobappApplicationTests {
 
 	@Test
 	void contextLoads() {
-		
 	}
 
 }
