@@ -85,6 +85,8 @@ jobs:
               restore-keys: ${{ runner.os }}-m2
           - name: Build and analyze
             env:
+              SONAR_LOGIN: ${{ secrets.SONAR_LOGIN }}
+              SONAR_PASSWORD: ${{ secrets.SONAR_PASSWORD }}
               SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
               SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
             run: mvn -B verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar
