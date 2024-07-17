@@ -40,7 +40,7 @@ jobs:
           working-directory: ${{ github.workspace }}/front
         
       name: Sonar Cloud Front-End Scan
-      runs-on: self-hosted
+      runs-on: ubuntu-latest
       steps:
       - uses: actions/checkout@v4
         with:
