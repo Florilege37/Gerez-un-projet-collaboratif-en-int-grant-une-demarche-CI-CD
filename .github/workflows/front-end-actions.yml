@@ -48,7 +48,6 @@ jobs:
       - uses: sonarsource/sonarqube-scan-action@master
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN_FRONT }}
-          SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
             
     docker-frontend:
         needs: sonar-frontend
