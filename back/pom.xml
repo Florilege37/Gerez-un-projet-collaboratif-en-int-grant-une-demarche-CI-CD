@@ -17,7 +17,7 @@
 		<java.version>11</java.version>
 		<sonar.organization>florilege37</sonar.organization>
 		<sonar.projectKey>bobapp</sonar.projectKey>
-   		<sonar.projectName>bobapp</sonar.projectName>
+   		<sonar.projectName>bobappback</sonar.projectName>
 		<sonar.host.url>http://localhost:4200</sonar.host.url>
 		<sonar.login>${env.SONAR_TOKEN}</sonar.login>
 	</properties> 
