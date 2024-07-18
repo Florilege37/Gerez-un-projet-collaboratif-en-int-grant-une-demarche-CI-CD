@@ -105,7 +105,7 @@ jobs:
             uses: docker/build-push-action@v5
             with:
               context: ./back
-              file: back/Dockerfile
+              file: ./back/Dockerfile
               push: true
               tags: ${{ secrets.DOCKERHUB_USERNAME }}/bobapp:latest    
               
