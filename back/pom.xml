@@ -17,7 +17,7 @@
 		<java.version>11</java.version>
 		<sonar.organization>florilege37</sonar.organization>
 		<sonar.projectkey>bobapp</sonar.projectkey>
-		<sonar.projectName>bobapp/develop</sonar.projectName>
+		<sonar.projectName>bobapp</sonar.projectName>
 	</properties> 
 	<dependencies>
 		<dependency>
