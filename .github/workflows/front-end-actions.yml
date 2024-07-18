@@ -42,6 +42,14 @@ jobs:
       name: Sonar Cloud Front-End Scan
       runs-on: self-hosted
       steps:
+      - name: Download SonarScanner
+        run: |
+          curl -sSLo sonar-scanner.zip https://binaries.sonarsource.com/Distribution/sonar-scanner-cli/sonar-scanner-cli-4.6.2.2472-windows.zip
+          tar -xvf sonar-scanner.zip
+
+      - name: Add SonarScanner to PATH
+        run: |
+          echo "::add-path::$(pwd)/sonar-scanner-4.6.2.2472-windows/bin"
       - uses: actions/checkout@v4
         with:
           fetch-depth: 0  # Shallow clones should be disabled for a better relevancy of analysis
