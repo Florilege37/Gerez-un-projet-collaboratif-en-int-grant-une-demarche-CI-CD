@@ -53,7 +53,9 @@ jobs:
           cache-dependency-path: ./front/package-lock.json
       - name: install SonarQube scanner 
         run: npm install -g sonarqube-scanner
-      - name: Run SonarQube
+      - name: Run SonarQube 
+        run: >
+            sonar-scanner
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN_FRONT }}
           SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
