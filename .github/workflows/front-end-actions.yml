@@ -79,7 +79,7 @@ jobs:
     
           - name: Build and push
             run: |
-              docker build -t joke .
+              docker build -t floriancicd/joke:latest ./front
               docker tag joke ${{ secrets.DOCKER_USERNAME }}/joke:latest
               docker push ${{ secrets.DOCKER_USERNAME }}/joke:latest
             
