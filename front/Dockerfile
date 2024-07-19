@@ -4,14 +4,6 @@ WORKDIR /usr/local/app
 COPY ./ /usr/local/app/
 
 RUN yarn
-# Installer Angular CLI globalement
-RUN npm install -g @angular/cli
-# Installer les dépendances du projet
-RUN npm install
-
-# Copier le reste des fichiers de l'application
-COPY . .
-
 RUN npm run build
  
 FROM nginx:latest as production
