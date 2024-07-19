@@ -78,10 +78,8 @@ jobs:
             uses: docker/setup-buildx-action@v3
     
           - name: Build and push
-            uses: docker/build-push-action@v5
-            with:
-              context: ./front
-              file: ./front/Dockerfile
-              push: true
-              tags: floriancicd/joke:latest
-        
+            run: |
+              docker build -t joke .
+              docker tag joke ${{ secrets.DOCKER_USERNAME }}/joke:latest
+              docker push ${{ secrets.DOCKER_USERNAME }}/joke:latest
+            
