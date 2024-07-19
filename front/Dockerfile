@@ -4,6 +4,8 @@ WORKDIR /usr/local/app
 COPY ./ /usr/local/app/
 
 RUN yarn
+# Installer Angular CLI globalement
+RUN npm install -g @angular/cli
 RUN npm run build
  
 FROM nginx:latest as production
