@@ -61,17 +61,16 @@ jobs:
           SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
             
     docker-frontend:
-        needs: sonar-frontend
-        name: Image Docker Front-end
+        name: Image Docker front-end
         runs-on: ubuntu-latest
         steps:
           - name: Checkout
-            uses: actions/checkout@v3
+            uses: actions/checkout@v4
     
           - name: Login to Docker Hub
             uses: docker/login-action@v3
             with:
-              username: ${{ secrets.DOCKERHUB_USERNAME }}
+              username: ${{ secrets.DOCKER_USERNAME }}
               password: ${{ secrets.DOCKER_PASSWORD }}
     
           - name: Setting up Docker Buildx
@@ -83,7 +82,7 @@ jobs:
               context: ./front
               file: ./front/Dockerfile
               push: true
-              tags: floriancicd/front_bobapp:tagname
+              tags: floriancicd/front:latest
             
 
             
