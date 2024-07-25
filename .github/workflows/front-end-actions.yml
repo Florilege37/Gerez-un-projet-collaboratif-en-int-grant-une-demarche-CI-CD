@@ -83,7 +83,7 @@ jobs:
               context: ./front
               file: ./front/Dockerfile
               push: true
-              tags: floriancicd/bobapp-front:latest
+              tags: floriancicd/front_bobapp:tagname
             
 
             
