@@ -5,7 +5,7 @@ on:
     # and pull request
     push:
         branches:
-            - develop
+            - main
         paths: 
             - 'back/**'
     pull_request:
