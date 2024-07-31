@@ -42,20 +42,6 @@ jobs:
       name: Sonar Cloud Front-End Scan
       runs-on: self-hosted
       steps:
-<<<<<<< HEAD
-        - uses: actions/checkout@v3
-          with:
-            fetch-depth: 0 # Shallow clones should be disabled for a better relevancy of analysis
-  
-        - name: Install SonarQube Scanner
-          run: npm install -g sonarqube-scanner
-  
-        - name: Run SonarQube Scanner
-          run: sonar-scanner
-          env:
-            TOKEN_GITHUB: ${{ secrets.TOKEN_GITHUB }}
-            SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-=======
       - uses: actions/checkout@v4
         with:
           fetch-depth: 0  # Shallow clones should be disabled for a better relevancy of analysis
@@ -73,7 +59,6 @@ jobs:
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN_FRONT }}
           SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
->>>>>>> origin/develop
             
     docker-frontend:
         name: Image Docker front-end
