@@ -5,11 +5,15 @@ on:
     # and pull request
     push:
         branches:
-            - main
+            - develop
+        paths: 
+            - 'back/**'
     pull_request:
         types: [opened, synchronize, reopened]
         branches:
             - main
+        paths: 
+            - 'back/**'
 jobs:
     backend:
         name: Build & Test Backend
@@ -44,7 +48,7 @@ jobs:
             working-directory: ${{ github.workspace }}/back
     
         name: SonarQube Backend
-        runs-on: ubuntu-latest
+        runs-on: self-hosted # Pour pointer sur le localhost de sonarQube
         steps:
           - uses: actions/checkout@v3
             with:
@@ -54,24 +58,41 @@ jobs:
             with:
               java-version: 17
               distribution: 'zulu' # Alternative distribution options are available.
+<<<<<<< HEAD
             
+=======
+
+          - name: Install Backend Dependencies
+            run: mvn clean install        # install packages
+              
+          - name: Execute Backend Tests
+            run: mvn clean test
+
+>>>>>>> origin/develop
           - name: Cache SonarCloud packages
             uses: actions/cache@v3
             with:
               path: ~/.sonar/cache
               key: ${{ runner.os }}-sonar
               restore-keys: ${{ runner.os }}-sonar
+              
           - name: Cache Maven packages
-            uses: actions/cache@v3
+            uses: actions/cache@v1
             with:
               path: ~/.m2
               key: ${{ runner.os }}-m2-${{ hashFiles('**/pom.xml') }}
               restore-keys: ${{ runner.os }}-m2
           - name: Build and analyze
             env:
+<<<<<<< HEAD
               SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
               SONAR_HOST_URL: ${{ secrets.SONAR_TOKEN }}
             run: mvn -B verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar -Dsonar.projectKey=Florilege37_Gerez-un-projet-collaboratif-en-int-grant-une-demarche-CI-CD
+=======
+              SONAR_TOKEN: ${{ secrets.SONAR_TOKEN_BACK }}
+              SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
+            run: mvn -B verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar
+>>>>>>> origin/develop
     
     docker-backend:
         needs: backend-sonar
@@ -84,8 +105,8 @@ jobs:
           - name: Login to Docker Hub
             uses: docker/login-action@v3
             with:
-              username: ${{ secrets.DOCKERHUB_USERNAME }}
-              password: ${{ secrets.DOCKERHUB_TOKEN }}
+              username: ${{ secrets.DOCKER_USERNAME }}
+              password: ${{ secrets.DOCKER_PASSWORD }}
     
           - name: Setting up Docker Buildx
             uses: docker/setup-buildx-action@v3
@@ -94,8 +115,10 @@ jobs:
             uses: docker/build-push-action@v5
             with:
               context: ./back
+<<<<<<< HEAD
               file: front/Dockerfile
+=======
+              file: ./back/Dockerfile
+>>>>>>> origin/develop
               push: true
-              tags: ${{ secrets.DOCKERHUB_USERNAME }}/bobapp_back:latest     
-  
-     
+              tags: ${{ secrets.DOCKERHUB_USERNAME }}/bobapp:latest    
